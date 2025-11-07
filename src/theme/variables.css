@@ -1,12 +1,50 @@
 :root {
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56,128,255;
-  --ion-color-secondary: #0cd1e8;
-  --ion-color-tertiary: #7044ff;
-  --ion-color-success: #10dc60;
-  --ion-color-warning: #ffce00;
-  --ion-color-danger: #f04141;
-  --ion-color-dark: #222428;
-  --ion-color-medium: #92949c;
-  --ion-color-light: #f4f5f8;
+  /* Base background and text tones */
+  --ion-background-color: #e6f0fa;
+  --ion-background-color-rgb: 230, 240, 250;
+  --ion-text-color: #1a2a3a;
+  --ion-text-color-rgb: 26, 42, 58;
+
+  /* Primary brand color — soft pastel blue */
+  --ion-color-primary: #a8d0ff;
+  --ion-color-primary-rgb: 168, 208, 255;
+  --ion-color-primary-contrast: #1a2a3a;
+  --ion-color-primary-shade: #91c1ff;
+  --ion-color-primary-tint: #b3dbff;
+
+  /* Secondary — muted teal/cyan */
+  --ion-color-secondary: #b0f0ea;
+  --ion-color-secondary-rgb: 176, 240, 234;
+  --ion-color-secondary-contrast: #1a2a3a;
+  --ion-color-secondary-shade: #99e4d7;
+  --ion-color-secondary-tint: #c3f7ee;
+
+  /* Tertiary — soft lavender-blue accent */
+  --ion-color-tertiary: #c5b3ff;
+  --ion-color-tertiary-rgb: 197, 179, 255;
+  --ion-color-tertiary-contrast: #1a2a3a;
+  --ion-color-tertiary-shade: #b19dff;
+  --ion-color-tertiary-tint: #d1c3ff;
+
+  /* Success, warning, danger — soft pastel variants */
+  --ion-color-success: #a4e7c5;
+  --ion-color-success-rgb: 164, 231, 197;
+  --ion-color-warning: #ffe4a0;
+  --ion-color-warning-rgb: 255, 228, 160;
+  --ion-color-danger: #ffa4a4;
+  --ion-color-danger-rgb: 255, 164, 164;
+
+  /* Neutral tones */
+  --ion-color-dark: #3a4b5c;
+  --ion-color-dark-rgb: 58, 75, 92;
+  --ion-color-medium: #7a8b9b;
+  --ion-color-medium-rgb: 122, 139, 155;
+  --ion-color-light: #ffffff;
+  --ion-color-light-rgb: 255, 255, 255;
+
+  /* Elevation + contrast adjustments */
+  --ion-toolbar-background: #d8e7ff;
+  --ion-card-background: #ffffff;
+  --ion-item-background: #f0f6ff;
+  --ion-border-color: #c0d1e8;
 }

@@ -32,6 +32,7 @@ export default function TodoList() {
     ]);
     const [webToast, setWebToast] = useState<{ show: boolean; msg: string }>({ show: false, msg: '' });
     const [addAlertOpen, setAddAlertOpen] = useState(false);
+    const [newTodoText, setNewTodoText] = useState('');
 
   useEffect(() => {
     let mounted = true;
@@ -106,7 +107,8 @@ export default function TodoList() {
   };
 
   const onAdd = async () => {
-    // show add alert to get text
+    // clear previous input and show add alert to get text
+    setNewTodoText('');
     setAddAlertOpen(true);
   };
 
@@ -189,7 +191,14 @@ export default function TodoList() {
         <IonAlert
           isOpen={addAlertOpen}
           header="Add todo"
-          inputs={[{ name: 'text', type: 'text', placeholder: 'What do you want to do?' }]}
+          inputs={[{ name: 'text', type: 'text', placeholder: 'What do you want to do?', value: newTodoText }]}
+          onDidPresent={() => {
+            // focus the native input inside the alert when it's presented
+            setTimeout(() => {
+              const el = document.querySelector<HTMLInputElement>('input.alert-input');
+              el?.focus();
+            }, 50);
+          }}
           buttons={[
             { text: 'Cancel', role: 'cancel', handler: () => setAddAlertOpen(false) },
             { text: 'Add', role: 'confirm', handler: (data) => addTodo(data.text) },
