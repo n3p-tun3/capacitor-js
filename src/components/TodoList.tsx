@@ -131,26 +131,54 @@ export default function TodoList() {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Todos</IonTitle>
+          <IonTitle className='px-4 text-center'>Todos</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
         <IonList>
-          {todos.map((todo) => (
-            <IonItemSliding key={todo.id}>
-              <IonItem onClick={() => toggle(todo.id)}>
-                <IonCheckbox slot="start" checked={todo.done} />
-                <IonLabel className='px-2' style={{ textDecoration: todo.done ? 'line-through' : 'none' }}>
-                  {todo.text}
-                </IonLabel>
-              </IonItem>
-              <IonItemOptions side="end">
-                <IonItemOption color="danger" onClick={() => remove(todo.id)}>
-                  <IonIcon icon={trash} />
-                </IonItemOption>
-              </IonItemOptions>
-            </IonItemSliding>
-          ))}
+          {todos.length === 0 ? (
+            <IonItem>
+              <div className="w-full bg-white/90 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-4 shadow-sm">
+                <h3 className="text-lg font-semibold mb-2">No todos yet</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  Get started with these quick actions — tap the buttons or use gestures shown below.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                  <li>
+                    <span className="font-medium">Add:</span> Tap the{' '}
+                    <span className="inline-flex items-center bg-blue-100 text-blue-700 px-2 py-0.5 rounded">+</span>{' '}
+                    button at the bottom-right, type a short description and press <span className="font-semibold">Add</span>.
+                  </li>
+                  <li>
+                    <span className="font-medium">Mark done / undone:</span> Tap the item or the checkbox to toggle its state. Done items have a
+                    strikethrough.
+                  </li>
+                  <li>
+                    <span className="font-medium">Delete:</span> Swipe the item to reveal the trash icon and tap it to remove the todo.
+                  </li>
+                </ul>
+                <p className="mt-3 text-sm text-gray-500 italic">
+                  Example: Add "Buy milk", tap it to mark done, or swipe to delete.
+                </p>
+              </div>
+            </IonItem>
+          ) : (
+            todos.map((todo) => (
+              <IonItemSliding key={todo.id}>
+                <IonItem onClick={() => toggle(todo.id)}>
+                  <IonCheckbox slot="start" checked={todo.done} />
+                  <IonLabel className='px-2' style={{ textDecoration: todo.done ? 'line-through' : 'none' }}>
+                    {todo.text}
+                  </IonLabel>
+                </IonItem>
+                <IonItemOptions side="end">
+                  <IonItemOption color="danger" onClick={() => remove(todo.id)}>
+                    <IonIcon icon={trash} />
+                  </IonItemOption>
+                </IonItemOptions>
+              </IonItemSliding>
+            ))
+          )}
         </IonList>
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
